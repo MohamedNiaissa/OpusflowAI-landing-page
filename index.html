@@ -63,8 +63,17 @@
         html {
             scroll-behavior: smooth;
         }
+        /* FAQ Accordion logic */
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        section {
+            scroll-margin-top: 100px;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
-
 </head>
 <body>
 
@@ -73,36 +82,33 @@
 
 <!-- Navigation -->
 <nav class="fixed w-full z-50 glass py-4 px-6 md:px-12 flex items-center justify-between">
-    <!-- Logo et Titre (Gauche) -->
-    <div class="flex items-center space-x-3">
-        <a href="#" class="flex items-center space-x-3 hover:opacity-80 transition-opacity">
-            <div class="w-10 h-10 flex items-center justify-center">
-                <img
-                        src="media/logo.png"
-                        alt="OpusflowAI logo"
-                        class="w-full h-full object-contain"
-                />
-            </div>
-            <div class="text-2xl font-extrabold tracking-tighter">
-                OPUSFLOW<span class="text-purple-500">AI</span>
-            </div>
-        </a>
+    <div class="flex flex-col">
+        <div class="flex items-center space-x-3">
+            <a href="#" class="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+                <div class="w-10 h-10 flex items-center justify-center">
+                    <img src="media/logo.png" alt="OpusflowAI logo" class="w-full h-full object-contain" />
+                </div>
+                <div class="text-2xl font-extrabold tracking-tighter">
+                    OPUSFLOW<span class="text-purple-500">AI</span>
+                </div>
+            </a>
+        </div>
+        <p class="hidden md:block text-[10px] text-gray-400 font-medium mt-1 max-w-xs leading-tight">
+            Expert fullstack depuis 3 ans, je mets mon savoir-faire technique au service de votre performance via l'automatisation et l'IA.
+        </p>
     </div>
 
-
-    <!-- Liens et Bouton (Droite) -->
     <div class="hidden md:flex items-center space-x-10 text-sm font-medium uppercase tracking-widest">
         <a href="#services" class="hover:text-purple-400 transition-colors">Services</a>
         <a href="#solutions" class="hover:text-purple-400 transition-colors">Solutions</a>
-        <a href="#contact" class="hover:text-purple-400 transition-colors">Contact</a>
+        <a href="#process" class="hover:text-purple-400 transition-colors">Méthode</a>
+        <a href="#faq" class="hover:text-purple-400 transition-colors">FAQ</a>
 
-        <!-- Bouton Démo aligné verticalement -->
         <a href="https://calendly.com/mohamed-opusflowai/30min" target="_blank" class="px-6 py-2.5 bg-purple-600 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-purple-700 transition-all glow-hover">
             Réserver un appel
         </a>
     </div>
 
-    <!-- Menu Mobile (Icone simplifiée) -->
     <div class="md:hidden">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
     </div>
@@ -110,55 +116,67 @@
 
 <!-- Hero Section -->
 <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-20">
+    <div class="mb-6 px-4 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-400 text-xs font-bold uppercase tracking-widest reveal">
+        Offre de lancement : 0€ en échange de votre feedback
+    </div>
     <h1 class="text-5xl md:text-8xl font-extrabold mb-6 leading-tight reveal">
         L'Intelligence <br><span class="text-gradient">Automatisée.</span>
     </h1>
     <p class="max-w-2xl text-gray-400 text-lg md:text-xl mb-10 reveal" style="transition-delay: 200ms">
-        OpusflowAI transforme les flux de travail complexes en processus fluides grâce à l'IA générative et l'automatisation intelligente.
+        Récupérez jusqu’à 15 heures par semaine en automatisant vos tâches répétitives grâce à des agents IA sur mesure, parfaitement intégrés à vos outils.
     </p>
     <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 reveal" style="transition-delay: 400ms">
-        <a href="#services" class="px-8 py-4 bg-purple-600 text-white font-bold rounded-lg glow-hover transition">Nos Solutions</a>
-        <a href="https://calendly.com/mohamed-opusflowai/30min" target="_blank" class="px-8 py-4 glass text-white font-bold rounded-lg hover:bg-white/10 transition">Réserver un appel</a>
+        <a href="#services" class="px-8 py-4 bg-purple-600 text-white font-bold rounded-lg glow-hover transition">Voir les services</a>
+        <a href="https://calendly.com/mohamed-opusflowai/30min" target="_blank" class="px-8 py-4 glass text-white font-bold rounded-lg hover:bg-white/10 transition">Réserver un appel gratuit</a>
     </div>
 </section>
 
 <!-- Services Section -->
 <section id="services" class="py-24 px-6 md:px-24">
-    <div class="mb-16">
-        <h2 class="text-3xl md:text-5xl font-bold mb-4 text-gradient">Services</h2>
-        <div class="h-1 w-20 bg-purple-600"></div>
+    <div class="mb-16 text-center">
+        <h2 class="text-3xl md:text-5xl font-bold mb-4 text-gradient">Nos Services</h2>
+        <div class="h-1 w-20 bg-purple-600 mx-auto"></div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Card 1 -->
-        <div class="glass p-8 rounded-2xl reveal">
-            <div class="w-12 h-12 bg-purple-600/20 rounded-lg flex items-center justify-center mb-6">
-                <svg class="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <!-- Card 1: Audit IA -->
+        <div class="glass p-10 rounded-2xl reveal flex flex-col h-full border-purple-500/20">
+            <div class="w-14 h-14 bg-purple-600/20 rounded-xl flex items-center justify-center mb-8">
+                <svg class="w-7 h-7 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                 </svg>
             </div>
-            <h3 class="text-xl font-bold mb-4">Audit IA & Automatisation</h3>
-            <p class="text-gray-400">Évaluation de vos processus et identification des opportunités d'automatisation et d'intégration de l'IA pour votre entreprise.</p>
+            <h3 class="text-2xl font-bold mb-4 text-white">1. Audit & Diagnostic IA</h3>
+            <p class="text-gray-400 mb-8 flex-grow leading-relaxed">
+                Analyse complète de vos flux de travail actuels. Nous identifions précisément les tâches chronophages où l'IA peut générer un gain de temps immédiat et chiffré.
+            </p>
+            <div class="pt-8 border-t border-white/5">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-purple-400 font-bold uppercase tracking-wider text-sm">Gratuit (Lancement)</span>
+                    <span class="text-gray-500 text-xs font-medium uppercase tracking-widest">Délai : 1 sem.</span>
+                </div>
+                <p class="text-gray-500 text-xs italic">Livrable : Rapport d'opportunités & Roadmap d'implémentation.</p>
+            </div>
         </div>
-        <!-- Card 2 -->
-        <div class="glass p-8 rounded-2xl reveal" style="transition-delay: 150ms">
-            <div class="w-12 h-12 bg-purple-600/20 rounded-lg flex items-center justify-center mb-6">
-                <svg class="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04rem"></path>
+
+        <!-- Card 2: Automatisation & Implementation -->
+        <div class="glass p-10 rounded-2xl reveal flex flex-col h-full border-purple-500/20" style="transition-delay: 150ms">
+            <div class="w-14 h-14 bg-purple-600/20 rounded-xl flex items-center justify-center mb-8">
+                <svg class="w-7 h-7 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
                 </svg>
             </div>
-            <h3 class="text-xl font-bold mb-4">Développement Web Automatisé</h3>
-            <p class="text-gray-400">Création d'applications web sur mesure pour automatiser vos flux de travail et intégrer des fonctionnalités intelligentes basées sur l'IA.</p>
-        </div>
-        <!-- Card 3 -->
-        <div class="glass p-8 rounded-2xl reveal" style="transition-delay: 300ms">
-            <div class="w-12 h-12 bg-purple-600/20 rounded-lg flex items-center justify-center mb-6">
-                <svg class="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path>
-                </svg>
+            <h3 class="text-2xl font-bold mb-4 text-white">2. Automatisation & Implémentation</h3>
+            <p class="text-gray-400 mb-8 flex-grow leading-relaxed">
+                Construction de vos agents IA et intégration directe dans vos outils (CRM, Slack, Gmail). Si besoin, nous développons une interface web dédiée pour piloter vos nouveaux processus.
+            </p>
+            <div class="pt-8 border-t border-white/5">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-purple-400 font-bold uppercase tracking-wider text-sm">Offre Bêta : 0€</span>
+                    <span class="text-gray-500 text-xs font-medium uppercase tracking-widest">Délai : 3-6 sem.</span>
+                </div>
+                <p class="text-gray-500 text-xs italic">Inclus : Développement, Tests & Formation de vos équipes.</p>
             </div>
-            <h3 class="text-xl font-bold mb-4">Conseil & Stratégie IA</h3>
-            <p class="text-gray-400">Accompagnement personnalisé pour intégrer l'IA dans votre entreprise, définir une roadmap et optimiser vos processus opérationnels.</p>
         </div>
     </div>
 </section>
@@ -166,14 +184,13 @@
 <!-- Solutions Section -->
 <section id="solutions" class="py-24 px-6 md:px-24 relative overflow-hidden">
     <div class="mb-16 text-center">
-        <h2 class="text-3xl md:text-5xl font-bold mb-4 text-gradient">Nos Exemples de Solutions</h2>
-        <p class="text-gray-400 max-w-2xl mx-auto">Nous transformons vos points de friction opérationnels en avantages compétitifs grâce à l'IA.</p>
+        <h2 class="text-3xl md:text-5xl font-bold mb-4 text-gradient">Exemples de Réalisations</h2>
+        <p class="text-gray-400 max-w-2xl mx-auto">Des solutions concrètes avec des résultats chiffrés.</p>
     </div>
 
     <div class="max-w-5xl mx-auto space-y-12">
         <!-- Solution 1: RAG -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-0 rounded-3xl overflow-hidden glass reveal border-purple-500/20 border">
-            <!-- Problem Side -->
             <div class="p-8 md:p-12 bg-red-500/5 flex flex-col justify-center border-r border-white/5">
                 <div class="flex items-center space-x-3 mb-6">
                     <div class="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center">
@@ -181,19 +198,14 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
                     </div>
-                    <span class="text-red-400 font-bold uppercase tracking-wider text-sm">Le Problème</span>
+                    <span class="text-red-400 font-bold uppercase tracking-wider text-sm">Le Diagnostic</span>
                 </div>
-                <h4 class="text-2xl font-bold mb-4">Perte d'informations critiques</h4>
+                <h4 class="text-2xl font-bold mb-4">Informations fragmentées</h4>
                 <p class="text-gray-400 leading-relaxed">
-                    Retrouver une information précise dans des centaines de documents PDF dispersées est un calvaire. Vos équipes perdent des heures chaque semaine à chercher au lieu de produire.
+                    Les employés perdent un temps précieux à chercher des données dans des centaines de documents PDF, manuels et emails.
                 </p>
-                <div class="mt-6 flex items-center text-red-400/80 text-sm italic">
-                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"></path></svg>
-                    Temps perdu : ~4h par employé / semaine
-                </div>
             </div>
 
-            <!-- Solution Side -->
             <div class="p-8 md:p-12 bg-purple-500/10 flex flex-col justify-center relative">
                 <div class="flex items-center space-x-3 mb-6">
                     <div class="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center">
@@ -205,18 +217,13 @@
                 </div>
                 <h4 class="text-2xl font-bold mb-4">Système RAG Intelligent</h4>
                 <p class="text-gray-300 leading-relaxed">
-                    Un agent IA capable de "lire" l'intégralité de vos sources PDF en temps réel. Posez une question, obtenez la réponse exacte en 10 secondes avec citation de la source.
+                    Un agent IA qui centralise vos connaissances et répond instantanément. Résultat : une réduction de 70% du temps de recherche documentaire et une économie moyenne de 5 heures par semaine pour chaque collaborateur.
                 </p>
-                <div class="mt-6 flex items-center text-green-400 font-bold">
-                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"></path></svg>
-                    Gain de temps : > 90% sur la recherche
-                </div>
             </div>
         </div>
 
-        <!-- Solution 2: Sales/Leads -->
+        <!-- Solution 2: Leads -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-0 rounded-3xl overflow-hidden glass reveal border-purple-500/20 border">
-            <!-- Problem Side -->
             <div class="p-8 md:p-12 bg-red-500/5 flex flex-col justify-center border-r border-white/5">
                 <div class="flex items-center space-x-3 mb-6">
                     <div class="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center">
@@ -224,21 +231,14 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
                     </div>
-                    <span class="text-red-400 font-bold uppercase tracking-wider text-sm">Le Problème</span>
+                    <span class="text-red-400 font-bold uppercase tracking-wider text-sm">Le Diagnostic</span>
                 </div>
-                <h4 class="text-2xl font-bold mb-4">Chaos dans la gestion des leads</h4>
-                <ul class="text-gray-400 space-y-3 mb-6 list-disc list-inside">
-                    <li>Arrivée multi-canaux non centralisée (emails, LinkedIn, formulaires).</li>
-                    <li>Saisie manuelle fastidieuse dans le CRM.</li>
-                    <li>Leads chauds perdus par manque de réactivité.</li>
-                </ul>
-                <div class="flex items-center text-red-400/80 text-sm italic">
-                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"></path></svg>
-                    Perte : ~2–3h par commercial / jour
-                </div>
+                <h4 class="text-2xl font-bold mb-4">Qualification manuelle</h4>
+                <p class="text-gray-400 leading-relaxed">
+                    Les leads sont triés à la main, causant des délais de réponse longs et des opportunités manquées par manque de réactivité.
+                </p>
             </div>
 
-            <!-- Solution Side -->
             <div class="p-8 md:p-12 bg-purple-500/10 flex flex-col justify-center relative">
                 <div class="flex items-center space-x-3 mb-6">
                     <div class="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center">
@@ -249,25 +249,14 @@
                     <span class="text-green-400 font-bold uppercase tracking-wider text-sm">Solution OpusflowAI</span>
                 </div>
                 <h4 class="text-2xl font-bold mb-4">Qualification & Nurturing IA</h4>
-                <p class="text-gray-300 leading-relaxed mb-6">
-                    Centralisation automatique et enrichissement des leads (secteur, intention). Scoring IA et génération d'emails personnalisés.
+                <p class="text-gray-300 leading-relaxed">
+                    Automatisation du tri et de l'enrichissement de vos prospects. Résultat : une diminution de 85% du temps de traitement initial et une augmentation de 25% du taux de conversion (H24/7).
                 </p>
-                <div class="space-y-2">
-                    <div class="flex items-center text-green-400 font-bold">
-                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"></path></svg>
-                        +20–30% de conversion opportunité
-                    </div>
-                    <div class="flex items-center text-green-400 font-bold">
-                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M5 13l4 4L19 7"></path></svg>
-                        -50% à -70% de tri manuel
-                    </div>
-                </div>
             </div>
         </div>
 
-        <!-- Solution 3: RH Onboarding -->
+        <!-- Solution 3: RH -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-0 rounded-3xl overflow-hidden glass reveal border-purple-500/20 border">
-            <!-- Problem Side -->
             <div class="p-8 md:p-12 bg-red-500/5 flex flex-col justify-center border-r border-white/5">
                 <div class="flex items-center space-x-3 mb-6">
                     <div class="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center">
@@ -275,19 +264,14 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
                     </div>
-                    <span class="text-red-400 font-bold uppercase tracking-wider text-sm">Le Problème</span>
+                    <span class="text-red-400 font-bold uppercase tracking-wider text-sm">Le Diagnostic</span>
                 </div>
-                <h4 class="text-2xl font-bold mb-4">Processus RH fragmentés</h4>
-                <p class="text-gray-400 leading-relaxed mb-4">
-                    Collecte de documents, génération de contrats et création de comptes manuels. Suivi complexe entre RH, IT et managers.
+                <h4 class="text-2xl font-bold mb-4">Onboarding chronophage</h4>
+                <p class="text-gray-400 leading-relaxed">
+                    Les tâches administratives répétitives lors de l'arrivée d'un nouveau collaborateur saturent le département RH.
                 </p>
-                <div class="flex items-center text-red-400/80 text-sm italic">
-                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"></path></svg>
-                    Temps perdu : 2–4h par onboarding
-                </div>
             </div>
 
-            <!-- Solution Side -->
             <div class="p-8 md:p-12 bg-purple-500/10 flex flex-col justify-center relative">
                 <div class="flex items-center space-x-3 mb-6">
                     <div class="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center">
@@ -297,57 +281,120 @@
                     </div>
                     <span class="text-green-400 font-bold uppercase tracking-wider text-sm">Solution OpusflowAI</span>
                 </div>
-                <h4 class="text-2xl font-bold mb-4">Workflow Onboarding Piloté</h4>
-                <p class="text-gray-300 leading-relaxed mb-6">
-                    Génération automatique des documents (Contrat, NDA) et orchestration des tâches IT/Finance avec suivi et relances intelligentes..
+                <h4 class="text-2xl font-bold mb-4">Workflow RH Automatisé</h4>
+                <p class="text-gray-300 leading-relaxed">
+                    Pilotage automatisé du parcours d'intégration. Résultat : une réduction de 60% des tâches administratives RH et une accélération de la productivité de l'ordre de 15 jours.
                 </p>
-                <div class="flex items-center text-green-400 font-bold">
-                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
-                    Temps administratif divisé par 3
-                </div>
             </div>
-        </div>
-
-        <!-- Call to Action for Custom Solutions -->
-        <div class="reveal mt-16 p-8 rounded-2xl bg-gradient-to-r from-purple-900/20 to-indigo-900/20 border border-purple-500/30 text-center max-w-3xl mx-auto">
-            <h5 class="text-xl font-bold mb-3 text-white">Besoin d'une solution spécifique ?</h5>
-            <p class="text-gray-400 mb-6">
-                Chaque entreprise est unique. Nous concevons des cas d'usages sur mesure pour répondre précisément à vos besoins opérationnels.
-            </p>
-            <a href="https://calendly.com/mohamed-opusflowai/30min" target="_blank" class="inline-flex items-center space-x-2 text-purple-400 font-bold hover:text-purple-300 transition-colors">
-                <span>Discutons de votre projet</span>
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-            </a>
         </div>
     </div>
 </section>
 
-<!-- Footer / Contact -->
+<!-- How It Works Section -->
+<section id="process" class="py-24 px-6 md:px-24">
+    <div class="mb-16 text-center">
+        <h2 class="text-3xl md:text-5xl font-bold mb-4 text-gradient">Comment ça marche</h2>
+        <p class="text-gray-400 max-w-xl mx-auto">Un parcours clair, transparent et sans aucun risque financier pour vous.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto relative">
+        <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-purple-500/20 to-transparent -z-10"></div>
+        <div class="glass p-8 rounded-2xl reveal border-white/5 relative bg-black/40">
+            <div class="absolute -top-5 -left-5 w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center text-xl font-bold border-4 border-[#05010d]">1</div>
+            <h3 class="text-xl font-bold mb-4 mt-2">Premier appel & Audit</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+                Nous discutons de vos besoins gratuitement. Je réalise ensuite un audit complet de vos processus, sans aucun engagement de votre part.
+            </p>
+        </div>
+        <div class="glass p-8 rounded-2xl reveal border-white/5 relative bg-black/40" style="transition-delay: 150ms">
+            <div class="absolute -top-5 -left-5 w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center text-xl font-bold border-4 border-[#05010d]">2</div>
+            <h3 class="text-xl font-bold mb-4 mt-2">Restitution & Décision</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+                On analyse ensemble les résultats de l'audit. Je vous explique le plan d'action et le suivi, vous décidez si on lance l'implémentation.
+            </p>
+        </div>
+        <div class="glass p-8 rounded-2xl reveal border-white/5 relative bg-black/40" style="transition-delay: 300ms">
+            <div class="absolute -top-5 -left-5 w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center text-xl font-bold border-4 border-[#05010d]">3</div>
+            <h3 class="text-xl font-bold mb-4 mt-2">Construction & Feedback</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+                Je développe votre solution avec des points d'étape réguliers. Vous testez l'outil en direct pour ajuster chaque détail selon vos besoins.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section id="faq" class="py-24 px-6 md:px-24 bg-white/5">
+    <div class="max-w-4xl mx-auto">
+        <div class="mb-16 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold mb-4 text-gradient">Questions Fréquentes</h2>
+            <p class="text-gray-400">Tout ce que vous devez savoir avant de commencer.</p>
+        </div>
+
+        <div class="space-y-4">
+            <div class="faq-item glass rounded-xl overflow-hidden reveal">
+                <button class="w-full p-6 text-left flex justify-between items-center focus:outline-none">
+                    <span class="font-bold text-white">Est-ce que l'investissement en vaut vraiment la peine ?</span>
+                </button>
+                <div class="faq-answer px-6">
+                    <p class="pb-6 text-gray-400 text-sm leading-relaxed">
+                        L’automatisation n’est pas un coût, mais un investissement dans votre temps. En éliminant les tâches répétitives, vous libérez des heures précieuses pour des missions à haute valeur ajoutée. Notre offre actuelle vous permet d'obtenir un audit et une solution gratuite pour tester l'impact réel avant tout engagement financier.
+                    </p>
+                </div>
+            </div>
+            <div class="faq-item glass rounded-xl overflow-hidden reveal" style="transition-delay: 100ms">
+                <button class="w-full p-6 text-left flex justify-between items-center focus:outline-none">
+                    <span class="font-bold text-white">Mon équipe doit-elle avoir des compétences techniques poussées ?</span>
+                </button>
+                <div class="faq-answer px-6">
+                    <p class="pb-6 text-gray-400 text-sm leading-relaxed">
+                        Absolument pas. Nous concevons nos outils pour qu'ils soient invisibles ou intégrés à vos logiciels actuels (Slack, Gmail, CRM). L'objectif est que l'IA travaille pour vous, et non l'inverse. Nous assurons une formation simple pour garantir que chacun soit à l'aise dès le premier jour.
+                    </p>
+                </div>
+            </div>
+            <div class="faq-item glass rounded-xl overflow-hidden reveal" style="transition-delay: 200ms">
+                <button class="w-full p-6 text-left flex justify-between items-center focus:outline-none">
+                    <span class="font-bold text-white">Combien de temps faut-il pour voir les premiers résultats ?</span>
+                </button>
+                <div class="faq-answer px-6">
+                    <p class="pb-6 text-gray-400 text-sm leading-relaxed">
+                        L’audit initial prend environ une semaine. Pour l'implémentation complète, comptez entre 3 et 6 semaines selon la complexité. Cependant, les gains de temps sont visibles dès la mise en service du premier agent IA. Nous privilégions une approche par étapes pour ne pas perturber votre activité.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-24 px-6 md:px-24">
+    <div class="reveal p-12 rounded-3xl bg-gradient-to-br from-purple-900/40 to-indigo-900/40 border border-purple-500/30 text-center max-w-4xl mx-auto">
+        <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white">Prêt pour votre audit gratuit ?</h2>
+        <p class="text-gray-300 text-lg mb-10 max-w-2xl mx-auto">
+            Nous recherchons 3 entreprises partenaires pour offrir cet audit de diagnostic et une preuve de concept gratuite en échange de votre retour d'expérience.
+        </p>
+        <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
+            <a href="https://calendly.com/mohamed-opusflowai/30min" target="_blank" class="px-10 py-4 bg-white text-purple-900 font-extrabold rounded-lg hover:bg-gray-100 transition shadow-xl">Postuler pour l'Audit (0€)</a>
+        </div>
+        <p class="mt-6 text-purple-300 text-sm font-medium">Seulement 2 places restantes pour ce mois-ci.</p>
+    </div>
+</section>
+
+<!-- Footer -->
 <footer id="contact" class="py-24 px-6 md:px-24 bg-black/50 border-t border-white/10">
     <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-4xl font-bold mb-8 reveal">
-            Prêt à passer à l'échelle ?
-        </h2>
-
-        <p class="text-gray-400 mb-12 reveal">
-            Contactez-nous pour une analyse gratuite de votre potentiel d'automatisation IA.
-        </p>
-
-        <!-- Bouton Calendly -->
-        <a href="https://calendly.com/mohamed-opusflowai/30min" target="_blank" rel="noopener noreferrer"
-           class="bg-purple-600 px-6 py-3 rounded-full font-bold hover:bg-purple-700 transition inline-flex items-center justify-center reveal gap-2">
-            Réserver un appel
-        </a>
-
-        <div class="mt-20 text-gray-600 text-sm">
+        <div class="text-2xl font-extrabold tracking-tighter mb-4 uppercase">
+            OPUSFLOW<span class="text-purple-500">AI</span>
+        </div>
+        <p class="text-gray-500 mb-8">L'intelligence artificielle au service de l'efficacité humaine.</p>
+        <div class="mt-10 text-gray-700 text-sm">
             &copy; 2025 OpusflowAI. Tous droits réservés.
         </div>
     </div>
 </footer>
 
-
 <script>
-    // --- LOGIQUE THREE.JS (FORME 3D) ---
+    // --- LOGIQUE THREE.JS (FORME 3D RESTAURÉE) ---
     let scene, camera, renderer, object;
 
     function init3D() {
@@ -400,6 +447,11 @@
                 reveals[i].classList.add("active");
             }
         }
+    }
+
+    function toggleFaq(button) {
+        const item = button.parentElement;
+        item.classList.toggle('active');
     }
 
     window.addEventListener('resize', () => {
