@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpusflowAI | L'IA au Service de l'Entreprise</title>
+    <title>OpusflowAI | L'IA au Service de la Rentabilité</title>
     <link rel="icon" type="image/png" href="media/logo.png">
     <link rel="apple-touch-icon" href="media/logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Clarity Tracking -->
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -57,15 +58,20 @@
             opacity: 1;
             transform: translateY(0);
         }
-        section {
-            scroll-margin-top: 100px;
+        /* FAQ Styles */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
         }
-        html {
-            scroll-behavior: smooth;
+        .faq-item.active .faq-answer {
+            max-height: 300px; /* Hauteur max arbitraire suffisante */
         }
-        /* FAQ Accordion logic */
         .faq-icon {
             transition: transform 0.3s ease;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
         }
         section {
             scroll-margin-top: 100px;
@@ -85,14 +91,16 @@
     <div class="flex flex-col">
         <div class="flex items-center space-x-3">
             <a href="#" class="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+                <!-- Placeholder Logo si image manquante -->
                 <div class="w-10 h-10 flex items-center justify-center">
-                    <img src="media/logo.png" alt="OpusflowAI logo" class="w-full h-full object-contain" />
+                    <img src="media/logo.png" alt="Logo" class="w-full h-full object-contain">
                 </div>
                 <div class="text-2xl font-extrabold tracking-tighter">
                     OPUSFLOW<span class="text-purple-500">AI</span>
                 </div>
             </a>
         </div>
+        <!-- CHANGEMENT ICI : Bio orientée Business et non Freelance -->
         <p class="hidden md:block text-[10px] text-gray-400 font-medium mt-1 max-w-xs leading-tight">
             Expert fullstack depuis 3 ans, je mets mon savoir-faire technique au service de votre performance via l'automatisation et l'IA.
         </p>
@@ -105,11 +113,11 @@
         <a href="#faq" class="hover:text-purple-400 transition-colors">FAQ</a>
 
         <a href="https://calendly.com/mohamed-opusflowai/30min" target="_blank" class="px-6 py-2.5 bg-purple-600 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-purple-700 transition-all glow-hover">
-            Réserver un appel
+            Audit Stratégique
         </a>
     </div>
 
-    <div class="md:hidden">
+    <div class="md:hidden text-white cursor-pointer">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
     </div>
 </nav>
@@ -120,11 +128,11 @@
         Arrêtez le travail manuel. <br><span class="text-gradient">Automatisez-le.</span>
     </h1>
     <p class="max-w-xl text-gray-400 text-base md:text-lg mb-8 reveal" style="transition-delay: 200ms">
-        Connectez vos outils et intégrez l'IA pour automatiser vos tâches répétitives. Récupérez jusqu'à 15h/semaine.
+        Connectez vos outils et intégrez l'IA pour automatiser vos tâches répétitives. Récupérez jusqu'à 15h/semaine dès le premier mois.
     </p>
     <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 reveal" style="transition-delay: 400ms">
-        <a href="#services" class="px-6 py-3 bg-purple-600 text-white font-bold rounded-lg glow-hover transition">Voir les services</a>
-        <a href="https://calendly.com/mohamed-opusflowai/30min" target="_blank" class="px-6 py-3 glass text-white font-bold rounded-lg hover:bg-white/10 transition">Appel gratuit</a>
+        <a href="#services" class="px-6 py-3 bg-purple-600 text-white font-bold rounded-lg glow-hover transition">Voir les solutions</a>
+        <a href="https://calendly.com/mohamed-opusflowai/30min" target="_blank" class="px-6 py-3 glass text-white font-bold rounded-lg hover:bg-white/10 transition">Audit Stratégique</a>
     </div>
 </section>
 
@@ -143,16 +151,18 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                 </svg>
             </div>
-            <h3 class="text-2xl font-bold mb-4 text-white">1. Audit & Diagnostic IA</h3>
+            <!-- CHANGEMENT ICI : Titre plus fort -->
+            <h3 class="text-2xl font-bold mb-4 text-white">1. Audit Stratégique & Cartographie ROI</h3>
             <p class="text-gray-400 mb-8 flex-grow leading-relaxed">
-                Analyse complète de vos flux de travail actuels. Nous identifions précisément les tâches chronophages où l'IA peut générer un gain de temps immédiat et chiffré.
+                Nous analysons vos flux de travail actuels pour détecter les "fuites" de productivité. Nous quantifions précisément combien d'argent et de temps l'IA va vous faire gagner.
             </p>
             <div class="pt-8 border-t border-white/5">
-                <div class="flex items-center justify-between mb-2">
-                    <span class="text-purple-400 font-bold uppercase tracking-wider text-sm">Gratuit (Lancement)</span>
-                    <span class="text-gray-500 text-xs font-medium uppercase tracking-widest">Délai : 1 sem.</span>
+                <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                    <!-- CHANGEMENT ICI : Prix barré -->
+                    <span class="text-purple-400 font-bold uppercase tracking-wider text-sm"><s>500€</s> (Offert pour les 5 premiers)</span>
+                    <span class="text-gray-500 text-xs font-medium uppercase tracking-widest mt-1 md:mt-0">Délai : 48h - 72h</span>
                 </div>
-                <p class="text-gray-500 text-xs italic">Livrable : Rapport d'opportunités & Roadmap d'implémentation.</p>
+                <p class="text-gray-500 text-xs italic">Livrable : Plan d'action chiffré & Roadmap d'implémentation.</p>
             </div>
         </div>
 
@@ -163,16 +173,18 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
                 </svg>
             </div>
-            <h3 class="text-2xl font-bold mb-4 text-white">2. Automatisation & Implémentation</h3>
+            <!-- CHANGEMENT ICI : Titre plus fort -->
+            <h3 class="text-2xl font-bold mb-4 text-white">2. Déploiement & Intégration Sur Mesure</h3>
             <p class="text-gray-400 mb-8 flex-grow leading-relaxed">
-                Construction de vos agents IA et intégration directe dans vos outils (CRM, Slack, Gmail). Si besoin, nous développons une interface web dédiée pour piloter vos nouveaux processus.
+                Construction de vos agents IA et intégration invisible dans votre écosystème (CRM, ERP, Outils internes). Nous transformons le plan d'action en système opérationnel clé en main.
             </p>
             <div class="pt-8 border-t border-white/5">
-                <div class="flex items-center justify-between mb-2">
-                    <span class="text-purple-400 font-bold uppercase tracking-wider text-sm">Offre Bêta : 0€</span>
-                    <span class="text-gray-500 text-xs font-medium uppercase tracking-widest">Délai : 3-6 sem.</span>
+                <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                    <!-- CHANGEMENT ICI : Programme Partenaire Pilote -->
+                    <span class="text-purple-400 font-bold uppercase tracking-wider text-sm">Programme "Partenaire Pilote"</span>
+                    <span class="text-gray-500 text-xs font-medium uppercase tracking-widest mt-1 md:mt-0">Délai : 2 à 4 semaines</span>
                 </div>
-                <p class="text-gray-500 text-xs italic">Inclus : Développement, Tests & Formation de vos équipes.</p>
+                <p class="text-gray-500 text-xs italic">Sur candidature uniquement. Inclus : Dév, Tests & Formation.</p>
             </div>
         </div>
     </div>
@@ -212,9 +224,9 @@
                     </div>
                     <span class="text-green-400 font-bold uppercase tracking-wider text-sm">Solution OpusflowAI</span>
                 </div>
-                <h4 class="text-2xl font-bold mb-4">Système RAG Intelligent</h4>
+                <h4 class="text-2xl font-bold mb-4">Cerveau Artificiel d'Entreprise</h4>
                 <p class="text-gray-300 leading-relaxed">
-                    Un agent IA qui centralise vos connaissances et répond instantanément. Résultat : une réduction de 70% du temps de recherche documentaire et une économie moyenne de 5 heures par semaine pour chaque collaborateur.
+                    Un agent IA centralise vos connaissances et répond instantanément. Résultat : une réduction de 70% du temps de recherche documentaire et une économie moyenne de 5 heures par semaine pour chaque collaborateur.
                 </p>
             </div>
         </div>
@@ -291,30 +303,30 @@
 <section id="process" class="py-24 px-6 md:px-24">
     <div class="mb-16 text-center">
         <h2 class="text-3xl md:text-5xl font-bold mb-4 text-gradient">Comment ça marche</h2>
-        <p class="text-gray-400 max-w-xl mx-auto">Un parcours clair, transparent et sans aucun risque financier pour vous.</p>
+        <p class="text-gray-400 max-w-xl mx-auto">Un parcours clair pour valider votre ROI avant tout déploiement majeur.</p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto relative">
         <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-purple-500/20 to-transparent -z-10"></div>
         <div class="glass p-8 rounded-2xl reveal border-white/5 relative bg-black/40">
             <div class="absolute -top-5 -left-5 w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center text-xl font-bold border-4 border-[#05010d]">1</div>
-            <h3 class="text-xl font-bold mb-4 mt-2">Premier appel & Audit</h3>
+            <h3 class="text-xl font-bold mb-4 mt-2">Audit Stratégique</h3>
             <p class="text-gray-400 text-sm leading-relaxed">
-                Nous discutons de vos besoins gratuitement. Je réalise ensuite un audit complet de vos processus, sans aucun engagement de votre part.
+                Ne laissez pas vos concurrents prendre l'avantage technologique. Nous identifions vos gisements de croissance immédiats en 30 minutes.
             </p>
         </div>
         <div class="glass p-8 rounded-2xl reveal border-white/5 relative bg-black/40" style="transition-delay: 150ms">
             <div class="absolute -top-5 -left-5 w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center text-xl font-bold border-4 border-[#05010d]">2</div>
-            <h3 class="text-xl font-bold mb-4 mt-2">Restitution & Décision</h3>
+            <h3 class="text-xl font-bold mb-4 mt-2">Plan d'Action & Décision</h3>
             <p class="text-gray-400 text-sm leading-relaxed">
-                On analyse ensemble les résultats de l'audit. Je vous explique le plan d'action et le suivi, vous décidez si on lance l'implémentation.
+                Je vous livre une roadmap chiffrée. Vous décidez si vous souhaitez entrer dans le programme "Partenaire Pilote" pour l'implémentation.
             </p>
         </div>
         <div class="glass p-8 rounded-2xl reveal border-white/5 relative bg-black/40" style="transition-delay: 300ms">
             <div class="absolute -top-5 -left-5 w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center text-xl font-bold border-4 border-[#05010d]">3</div>
-            <h3 class="text-xl font-bold mb-4 mt-2">Construction & Feedback</h3>
+            <h3 class="text-xl font-bold mb-4 mt-2">Construction & Livraison</h3>
             <p class="text-gray-400 text-sm leading-relaxed">
-                Je développe votre solution avec des points d'étape réguliers. Vous testez l'outil en direct pour ajuster chaque détail selon vos besoins.
+                Je développe votre solution avec des points d'étape réguliers. Vous testez l'outil en direct pour ajuster chaque détail.
             </p>
         </div>
     </div>
@@ -329,33 +341,35 @@
         </div>
 
         <div class="space-y-4">
+            <!-- Ajout de onclick pour faire fonctionner l'accordéon -->
             <div class="faq-item glass rounded-xl overflow-hidden reveal">
-                <button class="w-full p-6 text-left flex justify-between items-center focus:outline-none">
+                <div class="w-full p-6 text-left flex justify-between items-center focus:outline-none">
                     <span class="font-bold text-white">Est-ce que l'investissement en vaut vraiment la peine ?</span>
-                </button>
+                </div>
                 <div class="faq-answer px-6">
+                    <!-- CHANGEMENT ICI : Réponse POC / Valeur -->
                     <p class="pb-6 text-gray-400 text-sm leading-relaxed">
-                        L’automatisation n’est pas un coût, mais un investissement dans votre temps. En éliminant les tâches répétitives, vous libérez des heures précieuses pour des missions à haute valeur ajoutée. Notre offre actuelle vous permet d'obtenir un audit et une solution gratuite pour tester l'impact réel avant tout engagement financier.
+                        L’automatisation n’est pas un coût, mais un investissement. Notre modèle est basé sur la preuve de valeur. Via notre <strong>Programme Pilote</strong>, nous identifions les gains potentiels et déployons une première version pour valider concrètement le retour sur investissement (ROI). Vous jugez l'efficacité du système sur des chiffres réels, pas sur des promesses.
                     </p>
                 </div>
             </div>
-            <div class="faq-item glass rounded-xl overflow-hidden reveal" style="transition-delay: 100ms">
-                <button class="w-full p-6 text-left flex justify-between items-center focus:outline-none">
+            <div class="faq-item glass rounded-xl overflow-hidden reveal">
+                <div class="w-full p-6 text-left flex justify-between items-center focus:outline-none">
                     <span class="font-bold text-white">Mon équipe doit-elle avoir des compétences techniques poussées ?</span>
-                </button>
+                </div>
                 <div class="faq-answer px-6">
                     <p class="pb-6 text-gray-400 text-sm leading-relaxed">
                         Absolument pas. Nous concevons nos outils pour qu'ils soient invisibles ou intégrés à vos logiciels actuels (Slack, Gmail, CRM). L'objectif est que l'IA travaille pour vous, et non l'inverse. Nous assurons une formation simple pour garantir que chacun soit à l'aise dès le premier jour.
                     </p>
                 </div>
             </div>
-            <div class="faq-item glass rounded-xl overflow-hidden reveal" style="transition-delay: 200ms">
-                <button class="w-full p-6 text-left flex justify-between items-center focus:outline-none">
+            <div class="faq-item glass rounded-xl overflow-hidden reveal">
+                <div class="w-full p-6 text-left flex justify-between items-center focus:outline-none">
                     <span class="font-bold text-white">Combien de temps faut-il pour voir les premiers résultats ?</span>
-                </button>
+                </div>
                 <div class="faq-answer px-6">
                     <p class="pb-6 text-gray-400 text-sm leading-relaxed">
-                        L’audit initial prend environ une semaine. Pour l'implémentation complète, comptez entre 3 et 6 semaines selon la complexité. Cependant, les gains de temps sont visibles dès la mise en service du premier agent IA. Nous privilégions une approche par étapes pour ne pas perturber votre activité.
+                        L’audit initial (livré en 48-72h) vous donne déjà une vision claire. Pour l'implémentation complète, comptez entre 2 et 4 semaines (Programme Pilote). Cependant, les gains de temps sont visibles dès la mise en service du premier agent IA.
                     </p>
                 </div>
             </div>
@@ -366,13 +380,15 @@
 <!-- Call to Action -->
 <section class="py-24 px-6 md:px-24">
     <div class="reveal p-12 rounded-3xl bg-gradient-to-br from-purple-900/40 to-indigo-900/40 border border-purple-500/30 text-center max-w-4xl mx-auto">
-        <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white">Prêt pour votre audit gratuit ?</h2>
-      <br/>
-      <br/>
+        <!-- CHANGEMENT ICI : CTA Final plus pressant -->
+        <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white">Session Stratégique Offerte</h2>
+        <p class="mb-8 text-gray-300">Identifions vos gisements de croissance immédiats. Sans engagement.</p>
         <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
-            <a href="https://calendly.com/mohamed-opusflowai/30min" target="_blank" class="px-10 py-4 bg-white text-purple-900 font-extrabold rounded-lg hover:bg-gray-100 transition shadow-xl">Voyons ce que l'on peut automatiser</a>
+            <a href="https://calendly.com/mohamed-opusflowai/30min" target="_blank" class="px-10 py-4 bg-white text-purple-900 font-extrabold rounded-lg hover:bg-gray-100 transition shadow-xl uppercase tracking-wider">
+                Réserver ma session stratégique
+            </a>
         </div>
-        <p class="mt-6 text-purple-300 text-sm font-medium">Seulement 2 places restantes pour ce mois-ci.</p>
+        <p class="mt-6 text-purple-300 text-sm font-medium">Seulement 2 places disponibles pour le Programme Pilote ce mois-ci.</p>
     </div>
 </section>
 
@@ -399,7 +415,10 @@
 
         renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
         renderer.setSize(window.innerWidth, window.innerHeight);
-        document.getElementById('canvas-container').appendChild(renderer.domElement);
+        const container = document.getElementById('canvas-container');
+        if (container) {
+            container.appendChild(renderer.domElement);
+        }
 
         const geometry = new THREE.TorusKnotGeometry(10, 3, 100, 16);
         const material = new THREE.MeshPhongMaterial({
@@ -423,13 +442,14 @@
 
     function animate() {
         requestAnimationFrame(animate);
-        object.rotation.x += 0.002;
-        object.rotation.y += 0.002;
+        if (object) {
+            object.rotation.x += 0.002;
+            object.rotation.y += 0.002;
 
-        const scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-        object.rotation.z = scrollPercent * 5;
-        object.scale.set(1 + scrollPercent, 1 + scrollPercent, 1 + scrollPercent);
-
+            const scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+            object.rotation.z = scrollPercent * 5;
+            object.scale.set(1 + scrollPercent, 1 + scrollPercent, 1 + scrollPercent);
+        }
         renderer.render(scene, camera);
     }
 
