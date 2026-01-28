@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpusflowAI | Automatisation pour Entreprises de Nettoyage</title>
+    <link rel="icon" type="image/png" href="media/logo.png">
+    <link rel="apple-touch-icon" href="media/logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Clarity Tracking -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "uwnhvb56dv");
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #05010d;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        #canvas-container canvas {
+            pointer-events: none;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #a855f7 0%, #6366f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glow-hover:hover {
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* FAQ Styles */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+        section {
+            scroll-margin-top: 100px;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Arrière-plan 3D -->
+<div id="canvas-container"></div>
+
+<!-- Navigation -->
+<nav class="fixed w-full z-50 glass py-4 px-6 md:px-12 flex items-center justify-between">
+    <div class="flex flex-col">
+        <div class="flex items-center space-x-3">
+            <a href="index.html" class="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+                <!-- Logo -->
+                <div class="w-10 h-10 flex items-center justify-center">
+                    <img src="media/logo.png" alt="Logo" class="w-full h-full object-contain">
+                </div>
+                <div class="text-2xl font-extrabold tracking-tighter">
+                    OPUSFLOW<span class="text-purple-500">AI</span>
+                </div>
+            </a>
+        </div>
+        <p class="hidden md:block text-[10px] text-gray-400 font-medium mt-1 max-w-xs leading-tight">
+            Spécialiste de l'automatisation pour les entreprises de services, d'entretien et de nettoyage.
+        </p>
+    </div>
+
+    <div class="hidden md:flex items-center space-x-10 text-sm font-medium uppercase tracking-widest">
+        <a href="#probleme" class="hover:text-purple-400 transition-colors">Le Problème</a>
+        <a href="#solutions" class="hover:text-purple-400 transition-colors">Solutions</a>
+        <a href="#faq" class="hover:text-purple-400 transition-colors">FAQ</a>
+
+        <a href="https://calendly.com/mohamed-opusflowai/30min" target="_blank" class="px-6 py-2.5 bg-purple-600 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-purple-700 transition-all glow-hover">
+            Audit Gratuit
+        </a>
+    </div>
+
+    <div class="md:hidden text-white cursor-pointer">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-20">
+    <h1 class="text-3xl md:text-5xl font-extrabold mb-6 leading-tight reveal max-w-4xl">
+        Combien de contrats perdez-vous <br>
+        <span class="text-gradient">parce que vous étiez en intervention ?</span>
+    </h1>
+    <p class="max-w-2xl text-gray-400 text-base md:text-lg mb-8 reveal" style="transition-delay: 200ms">
+        Fini les appels manqués et les devis oubliés. Installez une IA qui répond, qualifie et relance vos prospects pendant que vous gérez vos équipes sur le terrain.
+    </p>
+    <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 reveal" style="transition-delay: 400ms">
+        <a href="#solutions" class="px-6 py-3 bg-purple-600 text-white font-bold rounded-lg glow-hover transition">Voir la démo</a>
+        <a href="https://calendly.com/mohamed-opusflowai/30min" target="_blank" class="px-6 py-3 glass text-white font-bold rounded-lg hover:bg-white/10 transition">Parler à un expert</a>
+    </div>
+</section>
+
+<!-- Le Problème (Mise en situation) -->
+<section id="probleme" class="py-24 px-6 md:px-24">
+    <div class="mb-16 text-center">
+        <h2 class="text-3xl md:text-5xl font-bold mb-4 text-gradient">La réalité du terrain</h2>
+        <div class="h-1 w-20 bg-purple-600 mx-auto"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <!-- Card 1: Lead Fantôme -->
+        <div class="glass p-10 rounded-2xl reveal flex flex-col h-full border-red-500/20">
+            <div class="w-14 h-14 bg-red-600/20 rounded-xl flex items-center justify-center mb-8">
+                <svg class="w-7 h-7 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-white">Le "Lead Fantôme"</h3>
+            <p class="text-gray-400 mb-4 flex-grow leading-relaxed">
+                Vous êtes sur un chantier ou en train de gérer une urgence. Un client potentiel appelle. Vous ne pouvez pas répondre.
+            </p>
+            <p class="text-gray-400 mb-8 flex-grow leading-relaxed">
+                Quand vous rappelez 3 heures plus tard, <strong>il a déjà signé avec un concurrent</strong> qui a décroché tout de suite.
+            </p>
+            <div class="pt-8 border-t border-white/5">
+                <span class="text-red-400 font-bold uppercase tracking-wider text-sm">Conséquence : Perte de CA immédiate</span>
+            </div>
+        </div>
+
+        <!-- Card 2: Devis sans réponse -->
+        <div class="glass p-10 rounded-2xl reveal flex flex-col h-full border-red-500/20" style="transition-delay: 150ms">
+            <div class="w-14 h-14 bg-red-600/20 rounded-xl flex items-center justify-center mb-8">
+                <svg class="w-7 h-7 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-white">Le "Ghosting" après Devis</h3>
+            <p class="text-gray-400 mb-4 flex-grow leading-relaxed">
+                Vous passez du temps à faire un devis (bureaux, fin de chantier, résidentiel). Vous l'envoyez par email.
+            </p>
+            <p class="text-gray-400 mb-8 flex-grow leading-relaxed">
+                Silence radio. Pris par le quotidien, <strong>vous oubliez de relancer</strong>. Le prospect passe à autre chose ou oublie votre proposition.
+            </p>
+            <div class="pt-8 border-t border-white/5">
+                <span class="text-red-400 font-bold uppercase tracking-wider text-sm">Conséquence : Effort commercial gâché</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Solutions Section -->
+<section id="solutions" class="py-24 px-6 md:px-24 relative overflow-hidden">
+    <div class="mb-16 text-center">
+        <h2 class="text-3xl md:text-5xl font-bold mb-4 text-gradient">La Solution : Votre Assistant IA 24/7</h2>
+        <p class="text-gray-400 max-w-2xl mx-auto">Une automatisation invisible qui capture et convertit vos prospects.</p>
+    </div>
+
+    <div class="max-w-5xl mx-auto space-y-12">
+
+        <!-- Solution 1: Speed to Lead -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-0 rounded-3xl overflow-hidden glass reveal border-purple-500/20 border">
+            <div class="p-8 md:p-12 bg-black/20 flex flex-col justify-center border-r border-white/5">
+                <h4 class="text-2xl font-bold mb-4 text-white">1. Réponse Instantanée (Speed-to-Lead)</h4>
+                <p class="text-gray-400 leading-relaxed mb-4">
+                    Ne laissez plus jamais un appel manqué devenir une vente perdue.
+                </p>
+                <ul class="text-sm text-gray-500 space-y-2">
+                    <li class="flex items-center"><span class="text-purple-500 mr-2">✓</span> Détection d'appel manqué</li>
+                    <li class="flex items-center"><span class="text-purple-500 mr-2">✓</span> Envoi SMS/WhatsApp dans la minute</li>
+                </ul>
+            </div>
+            <div class="p-8 md:p-12 bg-purple-900/10 flex flex-col justify-center relative">
+                <div class="p-4 bg-gray-800 rounded-lg border border-gray-700 shadow-xl max-w-sm mx-auto">
+                    <p class="text-xs text-gray-500 mb-2">Message envoyé automatiquement :</p>
+                    <p class="text-white italic">"Bonjour, j'ai vu votre appel. Je suis actuellement en intervention. Est-ce pour un nettoyage résidentiel ou commercial ?"</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Solution 2: Qualification & Devis -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-0 rounded-3xl overflow-hidden glass reveal border-purple-500/20 border">
+            <div class="p-8 md:p-12 bg-black/20 flex flex-col justify-center border-r border-white/5">
+                <h4 class="text-2xl font-bold mb-4 text-white">2. Qualification & Devis Estimatif</h4>
+                <p class="text-gray-400 leading-relaxed mb-4">
+                    Un chatbot intelligent qui pose les bonnes questions avant même que vous ne parliez au client.
+                </p>
+                <ul class="text-sm text-gray-500 space-y-2">
+                    <li class="flex items-center"><span class="text-purple-500 mr-2">✓</span> Type de local (Bureaux, Maison, Copro)</li>
+                    <li class="flex items-center"><span class="text-purple-500 mr-2">✓</span> Surface & Fréquence</li>
+                    <li class="flex items-center"><span class="text-purple-500 mr-2">✓</span> Prise de RDV pour inspection</li>
+                </ul>
+            </div>
+            <div class="p-8 md:p-12 bg-purple-900/10 flex flex-col justify-center relative">
+                <div class="p-4 bg-gray-800 rounded-lg border border-gray-700 shadow-xl max-w-sm mx-auto">
+                    <div class="space-y-3">
+                        <p class="text-xs text-right text-purple-400">Client: C'est pour des bureaux de 150m2.</p>
+                        <p class="text-xs text-left text-gray-300">IA: "Merci. Pour cette surface, nos tarifs débutent généralement vers X€. Souhaitez-vous que je réserve un créneau pour une visite technique ?"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Solution 3: Relance Auto -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-0 rounded-3xl overflow-hidden glass reveal border-purple-500/20 border">
+            <div class="p-8 md:p-12 bg-black/20 flex flex-col justify-center border-r border-white/5">
+                <h4 class="text-2xl font-bold mb-4 text-white">3. Séquence de Relance Automatisée</h4>
+                <p class="text-gray-400 leading-relaxed mb-4">
+                    Transformez les "je vais y réfléchir" en contrats signés sans y penser.
+                </p>
+                <ul class="text-sm text-gray-500 space-y-2">
+                    <li class="flex items-center"><span class="text-purple-500 mr-2">✓</span> Relance à J+2, J+5, J+10</li>
+                    <li class="flex items-center"><span class="text-purple-500 mr-2">✓</span> Arrêt automatique si réponse</li>
+                    <li class="flex items-center"><span class="text-purple-500 mr-2">✓</span> Augmente le taux de conversion de 30%</li>
+                </ul>
+            </div>
+            <div class="p-8 md:p-12 bg-purple-900/10 flex flex-col justify-center relative">
+                <div class="flex items-center justify-center">
+                    <div class="text-center">
+                        <h5 class="text-4xl font-extrabold text-white mb-2">+4h / sem</h5>
+                        <p class="text-sm text-purple-300 uppercase tracking-widest">Temps administratif économisé</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section id="faq" class="py-24 px-6 md:px-24 bg-white/5">
+    <div class="max-w-4xl mx-auto">
+        <div class="mb-16 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold mb-4 text-gradient">Questions Fréquentes</h2>
+            <p class="text-gray-400">Spécifique aux métiers de l'entretien.</p>
+        </div>
+
+        <div class="space-y-4">
+            <div class="faq-item glass rounded-xl overflow-hidden reveal">
+                <!-- Ajout de onclick sur la div parente du titre -->
+                <button class="w-full p-6 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <span class="font-bold text-white">Est-ce que ça fonctionne pour le résidentiel et le commercial ?</span>
+                    <svg class="w-5 h-5 text-purple-500 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="faq-answer px-6">
+                    <p class="pb-6 text-gray-400 text-sm leading-relaxed">
+                        Oui. Nous programmons l'IA pour qu'elle identifie dès le début le type de demande. Le ton et les questions s'adaptent (ex: demander le code d'accès ou la présence d'animaux pour le résidentiel, demander les horaires d'ouverture pour le commercial).
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-item glass rounded-xl overflow-hidden reveal">
+                <button class="w-full p-6 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <span class="font-bold text-white">Est-ce que mes clients sauront qu'ils parlent à un robot ?</span>
+                    <svg class="w-5 h-5 text-purple-500 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="faq-answer px-6">
+                    <p class="pb-6 text-gray-400 text-sm leading-relaxed">
+                        L'objectif n'est pas de tromper le client, mais d'être efficace. L'IA se présente comme votre "assistant virtuel". La plupart des clients préfèrent une réponse immédiate d'un assistant virtuel plutôt qu'attendre 24h une réponse humaine. Si la demande est trop complexe, l'IA vous transfère le dossier.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-item glass rounded-xl overflow-hidden reveal">
+                <button class="w-full p-6 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <span class="font-bold text-white">Je ne suis pas très technique, est-ce compliqué à gérer ?</span>
+                    <svg class="w-5 h-5 text-purple-500 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="faq-answer px-6">
+                    <p class="pb-6 text-gray-400 text-sm leading-relaxed">
+                        C'est du "clé en main". Nous installons tout pour vous. Au quotidien, vous recevez simplement les notifications de RDV ou les dossiers qualifiés sur votre téléphone. Vous n'avez rien à configurer vous-même.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-24 px-6 md:px-24">
+    <div class="reveal p-12 rounded-3xl bg-gradient-to-br from-purple-900/40 to-indigo-900/40 border border-purple-500/30 text-center max-w-4xl mx-auto">
+        <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white">Arrêtez de perdre des contrats</h2>
+        <p class="mb-8 text-gray-300">
+            Réservez un audit rapide de 30 min pour voir combien nous pouvons vous faire gagner.
+        </p>
+        <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
+            <a href="https://calendly.com/mohamed-opusflowai/30min" target="_blank" class="px-10 py-4 bg-white text-purple-900 font-extrabold rounded-lg hover:bg-gray-100 transition shadow-xl uppercase tracking-wider">
+                Réserver mon audit gratuit
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer id="contact" class="py-24 px-6 md:px-24 bg-black/50 border-t border-white/10">
+    <div class="max-w-4xl mx-auto text-center">
+        <div class="text-2xl font-extrabold tracking-tighter mb-4 uppercase">
+            OPUSFLOW<span class="text-purple-500">AI</span>
+        </div>
+        <p class="text-gray-500 mb-8">Solutions d'automatisation dédiées aux professionnels du nettoyage.</p>
+        <div class="mt-10 text-gray-700 text-sm">
+            &copy; 2025 OpusflowAI. Tous droits réservés.
+        </div>
+    </div>
+</footer>
+
+<script>
+    // --- LOGIQUE THREE.JS (FORME 3D) ---
+    let scene, camera, renderer, object;
+
+    function init3D() {
+        scene = new THREE.Scene();
+        camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+        renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        const container = document.getElementById('canvas-container');
+        if (container) {
+            container.appendChild(renderer.domElement);
+        }
+
+        // Forme TorusKnot (abstrait et tech)
+        const geometry = new THREE.TorusKnotGeometry(10, 3, 100, 16);
+        const material = new THREE.MeshPhongMaterial({
+            color: 0x8b5cf6,
+            wireframe: true,
+            emissive: 0x4c1d95,
+            emissiveIntensity: 0.5
+        });
+        object = new THREE.Mesh(geometry, material);
+        scene.add(object);
+
+        const light = new THREE.PointLight(0xffffff, 1, 100);
+        light.position.set(0, 0, 20);
+        scene.add(light);
+
+        const ambientLight = new THREE.AmbientLight(0x404040);
+        scene.add(ambientLight);
+
+        camera.position.z = 30;
+    }
+
+    function animate() {
+        requestAnimationFrame(animate);
+        if (object) {
+            object.rotation.x += 0.002;
+            object.rotation.y += 0.002;
+
+            const scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+            object.rotation.z = scrollPercent * 5;
+            object.scale.set(1 + scrollPercent, 1 + scrollPercent, 1 + scrollPercent);
+        }
+        renderer.render(scene, camera);
+    }
+
+    // Animation d'apparition au scroll
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 150;
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+            }
+        }
+    }
+
+    // Logique Accordéon FAQ
+    function toggleFaq(button) {
+        // Le bouton est à l'intérieur de la div .faq-item
+        const item = button.parentElement;
+
+        // On ferme les autres items si on veut un accordéon strict (optionnel)
+        /*
+        document.querySelectorAll('.faq-item').forEach(el => {
+            if(el !== item) el.classList.remove('active');
+        });
+        */
+
+        item.classList.toggle('active');
+    }
+
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    window.addEventListener("scroll", reveal);
+
+    window.onload = () => {
+        init3D();
+        animate();
+        reveal();
+    };
+</script>
+</body>
+</html>
