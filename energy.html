@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpusflowAI | Documentation Technique</title>
+    <link rel="icon" type="image/png" href="media/logo.png">
+    <link rel="apple-touch-icon" href="media/logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Clarity Tracking -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "uwnhvb56dv");
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #05010d;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        #canvas-container canvas {
+            pointer-events: none;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #a855f7 0%, #6366f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glow-hover:hover {
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* FAQ Styles */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+        section {
+            scroll-margin-top: 100px;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Arrière-plan 3D -->
+<div id="canvas-container"></div>
+
+<!-- Navigation -->
+<nav class="fixed w-full z-50 glass py-4 px-6 md:px-12 flex items-center justify-between">
+    <div class="flex flex-col">
+        <div class="flex items-center space-x-3">
+            <a href="#" class="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+                <!-- Placeholder Logo -->
+                <div class="w-10 h-10 flex items-center justify-center">
+                    <img src="media/logo.png" alt="Logo" class="w-full h-full object-contain">
+                </div>
+                <div class="text-2xl font-extrabold tracking-tighter">
+                    OPUSFLOW<span class="text-purple-500">AI</span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="hidden md:flex items-center space-x-10 text-sm font-medium uppercase tracking-widest">
+        <a href="#services" class="hover:text-purple-400 transition-colors">La Solution</a>
+        <a href="#process" class="hover:text-purple-400 transition-colors">Déploiement</a>
+        <a href="#faq" class="hover:text-purple-400 transition-colors">Questions</a>
+
+        <a href="https://calendly.com/mohamed-opusflowai/30min" target="_blank" class="px-6 py-2.5 bg-purple-600 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-purple-700 transition-all glow-hover">
+            Discutons
+        </a>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-20">
+    <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight reveal">
+        Interrogez vos PDF, Excel et bien plus.<br>
+        <span class="text-gradient">Obtenez la réponse.</span>
+    </h1>
+    <p class="max-w-2xl text-gray-300 text-lg mb-8 reveal" style="transition-delay: 200ms">
+        Transformez vos documents techniques en assistant intelligent.<br>
+        Vos techniciens posent une question, l'IA répond instantanément.
+    </p>
+    <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 reveal" style="transition-delay: 400ms">
+        <a href="#services" class="px-6 py-3 bg-purple-600 text-white font-bold rounded-lg glow-hover transition">Voir le fonctionnement</a>
+        <a href="https://calendly.com/mohamed-opusflowai/30min" target="_blank" class="px-6 py-3 glass text-white font-bold rounded-lg hover:bg-white/10 transition">Passez à l'action</a>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="py-24 px-6 md:px-24">
+    <div class="mb-16 text-center">
+        <h2 class="text-3xl md:text-5xl font-bold mb-4 text-gradient">Moteur de Réponse Technique</h2>
+        <div class="h-1 w-20 bg-purple-600 mx-auto"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <!-- Feature 1: Recherche -->
+        <div class="glass p-8 rounded-2xl reveal flex flex-col h-full border-purple-500/20">
+            <div class="w-12 h-12 bg-purple-600/20 rounded-lg flex items-center justify-center mb-6">
+                <svg class="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-white">Réponses Précises</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+                Le technicien pose une question simple. L'outil analyse vos PDF/Excel et fournit la réponse exacte en citant la page source.
+            </p>
+        </div>
+
+        <!-- Feature 2: Dynamique -->
+        <div class="glass p-8 rounded-2xl reveal flex flex-col h-full border-purple-500/20" style="transition-delay: 100ms">
+            <div class="w-12 h-12 bg-purple-600/20 rounded-lg flex items-center justify-center mb-6">
+                <svg class="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-white">Mise à jour en temps réel</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+                Votre base de données est vivante. Ajoutez, modifiez ou supprimez un document dans votre dossier : l'IA assimile le changement immédiatement.
+            </p>
+        </div>
+
+        <!-- Feature 3: Sécurité -->
+        <div class="glass p-8 rounded-2xl reveal flex flex-col h-full border-purple-500/20" style="transition-delay: 200ms">
+            <div class="w-12 h-12 bg-purple-600/20 rounded-lg flex items-center justify-center mb-6">
+                <svg class="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-white">Confidentialité & API</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+                L'application tourne chez vous. Les traitements passent par des API externes sécurisées qui garantissent que vos données restent confidentielles et ne sont jamais utilisées pour entraîner les modèles.            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Comparison Section -->
+<section class="py-24 px-6 md:px-24">
+    <div class="max-w-4xl mx-auto space-y-8">
+        <h2 class="text-3xl font-bold text-center mb-12">Le terrain change</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Avant -->
+            <div class="p-8 bg-red-900/10 border border-red-500/20 rounded-xl reveal">
+                <h4 class="text-red-400 font-bold mb-2 uppercase text-sm tracking-wide">Avant</h4>
+                <p class="text-gray-300">
+                    Perte de réseau en cherchant dans 15 fichiers PDF différents. Appel au bureau pour confirmer une valeur technique.
+                </p>
+            </div>
+
+            <!-- Après -->
+            <div class="p-8 bg-green-900/10 border border-green-500/20 rounded-xl reveal">
+                <h4 class="text-green-400 font-bold mb-2 uppercase text-sm tracking-wide">Avec OpusflowAI</h4>
+                <p class="text-gray-300">
+                    Une question posée en langage naturel. Une réponse instantanée extraite du bon document.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works Section -->
+<section id="process" class="py-24 px-6 md:px-24 bg-white/5">
+    <div class="mb-16 text-center">
+        <h2 class="text-3xl md:text-5xl font-bold mb-4 text-gradient">Installation Simple</h2>
+        <p class="text-gray-400 max-w-xl mx-auto">Conçu pour s'intégrer à votre infrastructure.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto relative">
+        <div class="glass p-8 rounded-2xl reveal border-white/5 relative bg-black/40">
+            <div class="text-4xl font-bold text-purple-600 mb-4">01</div>
+            <h3 class="text-xl font-bold mb-2">Connecter</h3>
+            <p class="text-gray-400 text-sm">
+                Nous connectons l'outil à vos volumes de données (PDF, Word, Excel).
+            </p>
+        </div>
+        <div class="glass p-8 rounded-2xl reveal border-white/5 relative bg-black/40" style="transition-delay: 150ms">
+            <div class="text-4xl font-bold text-purple-600 mb-4">02</div>
+            <h3 class="text-xl font-bold mb-2">Indexer</h3>
+            <p class="text-gray-400 text-sm">
+                L'IA lit et organise l'information. Si vous ajoutez un fichier demain, il est indexé automatiquement.
+            </p>
+        </div>
+        <div class="glass p-8 rounded-2xl reveal border-white/5 relative bg-black/40" style="transition-delay: 300ms">
+            <div class="text-4xl font-bold text-purple-600 mb-4">03</div>
+            <h3 class="text-xl font-bold mb-2">Interroger</h3>
+            <p class="text-gray-400 text-sm">
+                Vos équipes accèdent à l'interface de recherche sécurisée depuis leur poste ou tablette.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section id="faq" class="py-24 px-6 md:px-24">
+    <div class="max-w-3xl mx-auto">
+        <div class="mb-12 text-center">
+            <h2 class="text-3xl font-bold mb-4">Questions Fréquentes</h2>
+        </div>
+
+        <div class="space-y-4">
+            <!-- FAQ 1 -->
+            <div class="faq-item glass rounded-xl overflow-hidden reveal">
+                <button class="w-full p-6 text-left flex justify-between items-center focus:outline-none">
+                    <span class="font-bold text-white">Où sont stockées nos données ?</span>
+                </button>
+                <div class="faq-answer px-6">
+                    <p class="pb-6 text-gray-400 text-sm leading-relaxed">
+                        L'index de recherche et les documents restent sur <strong>votre serveur</strong>. Seuls les fragments de texte nécessaires à la réponse transitent de manière cryptée via les API IA, sans jamais être stockés ni utilisés pour l'entraînement (Politique Zero Retention).
+                    </p>
+                </div>
+            </div>
+            <!-- FAQ 2 -->
+            <div class="faq-item glass rounded-xl overflow-hidden reveal">
+                <button class="w-full p-6 text-left flex justify-between items-center focus:outline-none">
+                    <span class="font-bold text-white">L'IA peut-elle inventer des informations (hallucinations) ?</span>
+                </button>
+                <div class="faq-answer px-6">
+                    <p class="pb-6 text-gray-400 text-sm leading-relaxed">
+                        Nous configurons le système pour qu'il soit strict : il ne répond qu'en utilisant <strong>le contenu de vos documents</strong>. Si l'information n'y est pas, il indique qu'il ne sait pas plutôt que d'inventer. De plus, il cite toujours la source (Nom du fichier, Page X) pour vérification.
+                    </p>
+                </div>
+            </div>
+            <!-- FAQ 3 -->
+            <div class="faq-item glass rounded-xl overflow-hidden reveal">
+                <button class="w-full p-6 text-left flex justify-between items-center focus:outline-none">
+                    <span class="font-bold text-white">Que se passe-t-il si je mets à jour un document ?</span>
+                </button>
+                <div class="faq-answer px-6">
+                    <p class="pb-6 text-gray-400 text-sm leading-relaxed">
+                        Le système est dynamique. Dès qu'un fichier est ajouté ou modifié dans le dossier source, l'index est mis à jour automatiquement. Vos techniciens ont toujours accès à la dernière version de la procédure.
+                    </p>
+                </div>
+            </div>
+            <!-- FAQ 4 -->
+            <div class="faq-item glass rounded-xl overflow-hidden reveal">
+                <button class="w-full p-6 text-left flex justify-between items-center focus:outline-none">
+                    <span class="font-bold text-white">L'installation est-elle complexe ?</span>
+                </button>
+                <div class="faq-answer px-6">
+                    <p class="pb-6 text-gray-400 text-sm leading-relaxed">
+                        Non. Nous déployons la solution via des conteneurs standard (Docker) sur votre serveur existant ou une machine virtuelle dédiée. L'installation technique prend généralement moins d'une journée.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-24 px-6 md:px-24">
+    <div class="reveal p-12 rounded-3xl bg-gradient-to-br from-purple-900/40 to-indigo-900/40 border border-purple-500/30 text-center max-w-4xl mx-auto">
+        <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white">Parlons de vos documents</h2>
+        <p class="mb-8 text-gray-300">Un appel de 15 minutes pour valider la faisabilité technique sur votre infrastructure.</p>
+        <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
+            <a href="https://calendly.com/mohamed-opusflowai/30min" target="_blank" class="px-10 py-4 bg-white text-purple-900 font-extrabold rounded-lg hover:bg-gray-100 transition shadow-xl uppercase tracking-wider">
+                Réserver un appel
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer id="contact" class="py-24 px-6 md:px-24 bg-black/50 border-t border-white/10">
+    <div class="max-w-4xl mx-auto text-center">
+        <div class="text-2xl font-extrabold tracking-tighter mb-4 uppercase">
+            OPUSFLOW<span class="text-purple-500">AI</span>
+        </div>
+        <p class="text-gray-500 mb-8">Intelligence Artificielle pour l'Industrie.</p>
+        <div class="mt-10 text-gray-700 text-sm">
+            &copy; 2025 OpusflowAI. Tous droits réservés.
+        </div>
+    </div>
+</footer>
+
+<script>
+    // --- LOGIQUE THREE.JS ---
+    let scene, camera, renderer, object;
+
+    function init3D() {
+        scene = new THREE.Scene();
+        camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+        renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        const container = document.getElementById('canvas-container');
+        if (container) {
+            container.appendChild(renderer.domElement);
+        }
+
+        const geometry = new THREE.TorusKnotGeometry(10, 3, 100, 16);
+        const material = new THREE.MeshPhongMaterial({
+            color: 0x8b5cf6,
+            wireframe: true,
+            emissive: 0x4c1d95,
+            emissiveIntensity: 0.5
+        });
+        object = new THREE.Mesh(geometry, material);
+        scene.add(object);
+
+        const light = new THREE.PointLight(0xffffff, 1, 100);
+        light.position.set(0, 0, 20);
+        scene.add(light);
+
+        const ambientLight = new THREE.AmbientLight(0x404040);
+        scene.add(ambientLight);
+
+        camera.position.z = 30;
+    }
+
+    function animate() {
+        requestAnimationFrame(animate);
+        if (object) {
+            object.rotation.x += 0.002;
+            object.rotation.y += 0.002;
+
+            const scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+            object.rotation.z = scrollPercent * 5;
+            object.scale.set(1 + scrollPercent, 1 + scrollPercent, 1 + scrollPercent);
+        }
+        renderer.render(scene, camera);
+    }
+
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 150;
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+            }
+        }
+    }
+
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    window.addEventListener("scroll", reveal);
+
+    window.onload = () => {
+        init3D();
+        animate();
+        reveal();
+    };
+</script>
+</body>
+</html>
