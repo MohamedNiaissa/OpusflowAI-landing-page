@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpusflowAI | Solutions E-commerce</title>
+    <link rel="icon" type="image/png" href="media/logo.png">
+    <link rel="apple-touch-icon" href="media/logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Clarity Tracking -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "uwnhvb56dv");
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #05010d;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        #canvas-container canvas {
+            pointer-events: none;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #a855f7 0%, #6366f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glow-hover:hover {
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* FAQ Styles */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 300px; /* Hauteur max arbitraire suffisante */
+        }
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+        section {
+            scroll-margin-top: 100px;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Arrière-plan 3D -->
+<div id="canvas-container"></div>
+
+<!-- Navigation -->
+<nav class="fixed w-full z-50 glass py-4 px-6 md:px-12 flex items-center justify-between">
+    <div class="flex flex-col">
+        <div class="flex items-center space-x-3">
+            <a href="#" class="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+                <!-- Placeholder Logo si image manquante -->
+                <div class="w-10 h-10 flex items-center justify-center">
+                    <img src="media/logo.png" alt="Logo" class="w-full h-full object-contain">
+                </div>
+                <div class="text-2xl font-extrabold tracking-tighter">
+                    OPUSFLOW<span class="text-purple-500">AI</span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="hidden md:flex items-center space-x-10 text-sm font-medium uppercase tracking-widest">
+        <a href="#services" class="hover:text-purple-400 transition-colors">L'Agent IA</a>
+        <a href="#solutions" class="hover:text-purple-400 transition-colors">Solutions</a>
+        <a href="#process" class="hover:text-purple-400 transition-colors">Méthode</a>
+        <a href="#faq" class="hover:text-purple-400 transition-colors">FAQ</a>
+
+        <a href="https://calendly.com/mohamed-opusflowai/30min" target="_blank" class="px-6 py-2.5 bg-purple-600 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-purple-700 transition-all glow-hover">
+            Audit Stratégique
+        </a>
+    </div>
+
+    <div class="md:hidden text-white cursor-pointer">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-20">
+    <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight reveal">
+        Guidez vos visiteurs <br><span class="text-gradient"> vers le produit idéal</span>
+    </h1>
+    <p class="max-w-xl text-gray-400 text-base md:text-lg mb-8 reveal" style="transition-delay: 200ms">
+        Ne laissez plus vos clients quitter le site sans acheter. Intégrez un Agent IA Spécialiste capable de conseiller, guider et rassurer vos visiteurs 24h/24 comme le ferait votre meilleur vendeur.
+    </p>
+    <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 reveal" style="transition-delay: 400ms">
+        <a href="#services" class="px-6 py-3 bg-purple-600 text-white font-bold rounded-lg glow-hover transition">Découvrir l'Agent IA</a>
+        <a href="https://calendly.com/mohamed-opusflowai/30min" target="_blank" class="px-6 py-3 glass text-white font-bold rounded-lg hover:bg-white/10 transition">Réserver un Audit Gratuit</a>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="py-24 px-6 md:px-24">
+    <div class="mb-16 text-center">
+        <h2 class="text-3xl md:text-5xl font-bold mb-4 text-gradient">L'Expertise OpusflowAI</h2>
+        <div class="h-1 w-20 bg-purple-600 mx-auto"></div>
+        <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Une implémentation double action pour maximiser vos conversions.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <!-- Service 1 : Vente Assistée -->
+        <div class="glass p-10 rounded-2xl reveal flex flex-col h-full border-purple-500/20">
+            <div class="w-14 h-14 bg-purple-600/20 rounded-xl flex items-center justify-center mb-8">
+                <!-- Icone Caddie/Vente -->
+                <svg class="w-7 h-7 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-white">Le Conseiller de Vente IA</h3>
+            <p class="text-gray-400 mb-8 flex-grow leading-relaxed">
+                Fini les clients perdus dans votre catalogue. Mon agent analyse les besoins spécifiques de chaque visiteur en temps réel pour lui recommander <strong>le produit parfait</strong>. Il réduit la friction, lève les doutes et augmente votre panier moyen.
+            </p>
+            <div class="pt-8 border-t border-white/5">
+                <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                    <span class="text-purple-400 font-bold uppercase tracking-wider text-sm">Objectif</span>
+                    <span class="text-gray-500 text-xs font-medium uppercase tracking-widest mt-1 md:mt-0">Installation rapide</span>
+                </div>
+                <p class="text-gray-500 text-xs italic">Augmentation du taux de conversion.</p>
+            </div>
+        </div>
+
+        <!-- Service 2 : SAV & Rétention -->
+        <div class="glass p-10 rounded-2xl reveal flex flex-col h-full border-purple-500/20" style="transition-delay: 150ms">
+            <div class="w-14 h-14 bg-purple-600/20 rounded-xl flex items-center justify-center mb-8">
+                <!-- Icone Support/Chat -->
+                <svg class="w-7 h-7 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+                </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-white">L'Agent Support & SAV</h3>
+            <p class="text-gray-400 mb-8 flex-grow leading-relaxed">
+                Une réponse immédiate aux questions fréquentes (suivi de commande, retours, caractéristiques techniques). L'agent filtre les demandes simples pour que vous ne gériez que les cas complexes, tout en assurant une satisfaction client instantanée 24/7.
+            </p>
+            <div class="pt-8 border-t border-white/5">
+                <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                    <span class="text-purple-400 font-bold uppercase tracking-wider text-sm">Objectif</span>
+                    <span class="text-gray-500 text-xs font-medium uppercase tracking-widest mt-1 md:mt-0">Dispo 24/7</span>
+                </div>
+                <p class="text-gray-500 text-xs italic">Réduction des tickets support entrants.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Solutions Section -->
+<section id="solutions" class="py-24 px-6 md:px-24 relative overflow-hidden">
+    <div class="mb-16 text-center">
+        <h2 class="text-3xl md:text-5xl font-bold mb-4 text-gradient">Pourquoi l'Agent IA ?</h2>
+        <p class="text-gray-400 max-w-2xl mx-auto">Comprendre le problème pour mieux convertir.</p>
+    </div>
+
+    <div class="max-w-5xl mx-auto space-y-12">
+        <!-- Solution 1 : Indécision -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-0 rounded-3xl overflow-hidden glass reveal border-purple-500/20 border">
+            <div class="p-8 md:p-12 bg-red-500/5 flex flex-col justify-center border-r border-white/5">
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center">
+                        <svg class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </div>
+                    <span class="text-red-400 font-bold uppercase tracking-wider text-sm">Le Problème</span>
+                </div>
+                <h4 class="text-2xl font-bold mb-4">La paralysie du choix</h4>
+                <p class="text-gray-400 leading-relaxed">
+                    Face à trop d'options ou des descriptions techniques, l'utilisateur hésite. Un client indécis est un client qui n'achète pas. C'est la cause principale du taux de rebond élevé sur les pages produits.
+                </p>
+            </div>
+
+            <div class="p-8 md:p-12 bg-purple-500/10 flex flex-col justify-center relative">
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center">
+                        <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                    <span class="text-green-400 font-bold uppercase tracking-wider text-sm">Solution OpusflowAI</span>
+                </div>
+                <h4 class="text-2xl font-bold mb-4">Guidage Personnalisé</h4>
+                <p class="text-gray-300 leading-relaxed">
+                    L'IA pose les bonnes questions et guide l'utilisateur vers <strong>LE</strong> produit adapté à ses besoins, éliminant l'hésitation et accélérant la décision d'achat.
+                </p>
+            </div>
+        </div>
+
+        <!-- Solution 2 : Délais de réponse -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-0 rounded-3xl overflow-hidden glass reveal border-purple-500/20 border">
+            <div class="p-8 md:p-12 bg-red-500/5 flex flex-col justify-center border-r border-white/5">
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center">
+                        <svg class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </div>
+                    <span class="text-red-400 font-bold uppercase tracking-wider text-sm">Le Problème</span>
+                </div>
+                <h4 class="text-2xl font-bold mb-4">Le SAV non-instantané</h4>
+                <p class="text-gray-400 leading-relaxed">
+                    Un client qui pose une question sur la livraison ou un retour veut une réponse immédiate. S'il doit envoyer un email et attendre 24h, il risque d'aller voir la concurrence.
+                </p>
+            </div>
+
+            <div class="p-8 md:p-12 bg-purple-500/10 flex flex-col justify-center relative">
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center">
+                        <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                    <span class="text-green-400 font-bold uppercase tracking-wider text-sm">Solution OpusflowAI</span>
+                </div>
+                <h4 class="text-2xl font-bold mb-4">Réponse en temps réel</h4>
+                <p class="text-gray-300 leading-relaxed">
+                    L'agent IA accède à vos politiques et FAQ pour répondre instantanément, de jour comme de nuit, rassurant le client et bloquant son intention de départ.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works Section -->
+<section id="process" class="py-24 px-6 md:px-24">
+    <div class="mb-16 text-center">
+        <h2 class="text-3xl md:text-5xl font-bold mb-4 text-gradient">L'Implémentation</h2>
+        <p class="text-gray-400 max-w-xl mx-auto">Intégration fluide sans perturber votre activité actuelle.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto relative">
+        <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-purple-500/20 to-transparent -z-10"></div>
+        <div class="glass p-8 rounded-2xl reveal border-white/5 relative bg-black/40">
+            <div class="absolute -top-5 -left-5 w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center text-xl font-bold border-4 border-[#05010d]">1</div>
+            <h3 class="text-xl font-bold mb-4 mt-2">Audit & Connexion</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+                J'analyse votre boutique et connecte l'IA à votre catalogue produits et votre base de connaissances (FAQ, politiques de retour) de manière sécurisée.
+            </p>
+        </div>
+        <div class="glass p-8 rounded-2xl reveal border-white/5 relative bg-black/40" style="transition-delay: 150ms">
+            <div class="absolute -top-5 -left-5 w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center text-xl font-bold border-4 border-[#05010d]">2</div>
+            <h3 class="text-xl font-bold mb-4 mt-2">Configuration & Test</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+                Je paramètre le "ton" de l'IA pour qu'il corresponde à votre image de marque et je mets en place les scénarios de vente et de support.
+            </p>
+        </div>
+        <div class="glass p-8 rounded-2xl reveal border-white/5 relative bg-black/40" style="transition-delay: 300ms">
+            <div class="absolute -top-5 -left-5 w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center text-xl font-bold border-4 border-[#05010d]">3</div>
+            <h3 class="text-xl font-bold mb-4 mt-2">Déploiement & Suivi</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+                L'agent est intégré sur votre site. Nous surveillons les premières interactions pour optimiser les réponses et maximiser la satisfaction client.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section id="faq" class="py-24 px-6 md:px-24 bg-white/5">
+    <div class="max-w-4xl mx-auto">
+        <div class="mb-16 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold mb-4 text-gradient">Questions Fréquentes</h2>
+            <p class="text-gray-400">Tout savoir sur l'Agent Spécialiste E-commerce.</p>
+        </div>
+
+        <div class="space-y-4">
+            <!-- FAQ 1 -->
+            <div class="faq-item glass rounded-xl overflow-hidden reveal">
+                <button  class="w-full p-6 text-left flex justify-between items-center focus:outline-none">
+                    <span class="font-bold text-white">L'IA peut-elle recommander des produits qui n'ont rien à voir ?</span>
+
+                </button>
+                <div class="faq-answer px-6">
+                    <p class="pb-6 text-gray-400 text-sm leading-relaxed">
+                        Non. L'Agent IA est strictement configuré pour se baser uniquement sur votre catalogue produits existant. Il utilise vos fiches produits pour faire des correspondances logiques avec les besoins exprimés par le client.
+                    </p>
+                </div>
+            </div>
+            <!-- FAQ 2 -->
+            <div class="faq-item glass rounded-xl overflow-hidden reveal">
+                <button  class="w-full p-6 text-left flex justify-between items-center focus:outline-none">
+                    <span class="font-bold text-white">Est-ce compatible avec mon site actuel ?</span>
+
+                </button>
+                <div class="faq-answer px-6">
+                    <p class="pb-6 text-gray-400 text-sm leading-relaxed">
+                        Oui, la solution s'intègre sous forme de widget ou via API sur la majorité des plateformes e-commerce (Shopify, WooCommerce, PrestaShop, Magento) et sites sur mesure.
+                    </p>
+                </div>
+            </div>
+            <!-- FAQ 3 -->
+            <div class="faq-item glass rounded-xl overflow-hidden reveal">
+                <button  class="w-full p-6 text-left flex justify-between items-center focus:outline-none">
+                    <span class="font-bold text-white">L'IA remplace-t-elle mon équipe support ?</span>
+
+                </button>
+                <div class="faq-answer px-6">
+                    <p class="pb-6 text-gray-400 text-sm leading-relaxed">
+                        Elle ne la remplace pas, elle l'augmente. L'IA gère 80% des questions répétitives et chronophages, permettant à votre équipe humaine de se concentrer sur les cas complexes, les litiges ou les relations VIP.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-24 px-6 md:px-24">
+    <div class="reveal p-12 rounded-3xl bg-gradient-to-br from-purple-900/40 to-indigo-900/40 border border-purple-500/30 text-center max-w-4xl mx-auto">
+        <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white">Prêt à booster vos conversions ?</h2>
+        <p class="mb-8 text-gray-300">Discutons de votre boutique et voyons comment l'Agent IA peut réduire vos abandons de panier dès le mois prochain.</p>
+        <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
+            <a href="https://calendly.com/mohamed-opusflowai/30min" target="_blank" class="px-10 py-4 bg-white text-purple-900 font-extrabold rounded-lg hover:bg-gray-100 transition shadow-xl uppercase tracking-wider">
+                Réserver ma session stratégique
+            </a>
+        </div>
+        <p class="mt-6 text-purple-300 text-sm font-medium">Audit de faisabilité offert & sans engagement.</p>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer id="contact" class="py-24 px-6 md:px-24 bg-black/50 border-t border-white/10">
+    <div class="max-w-4xl mx-auto text-center">
+        <div class="text-2xl font-extrabold tracking-tighter mb-4 uppercase">
+            OPUSFLOW<span class="text-purple-500">AI</span>
+        </div>
+        <p class="text-gray-500 mb-8">L'intelligence artificielle au service de votre performance e-commerce.</p>
+        <div class="mt-10 text-gray-700 text-sm">
+            &copy; 2025 OpusflowAI. Tous droits réservés.
+        </div>
+    </div>
+</footer>
+
+<script>
+    // --- LOGIQUE THREE.JS (FORME 3D RESTAURÉE) ---
+    let scene, camera, renderer, object;
+
+    function init3D() {
+        scene = new THREE.Scene();
+        camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+        renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        const container = document.getElementById('canvas-container');
+        if (container) {
+            container.appendChild(renderer.domElement);
+        }
+
+        const geometry = new THREE.TorusKnotGeometry(10, 3, 100, 16);
+        const material = new THREE.MeshPhongMaterial({
+            color: 0x8b5cf6,
+            wireframe: true,
+            emissive: 0x4c1d95,
+            emissiveIntensity: 0.5
+        });
+        object = new THREE.Mesh(geometry, material);
+        scene.add(object);
+
+        const light = new THREE.PointLight(0xffffff, 1, 100);
+        light.position.set(0, 0, 20);
+        scene.add(light);
+
+        const ambientLight = new THREE.AmbientLight(0x404040);
+        scene.add(ambientLight);
+
+        camera.position.z = 30;
+    }
+
+    function animate() {
+        requestAnimationFrame(animate);
+        if (object) {
+            object.rotation.x += 0.002;
+            object.rotation.y += 0.002;
+
+            const scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+            object.rotation.z = scrollPercent * 5;
+            object.scale.set(1 + scrollPercent, 1 + scrollPercent, 1 + scrollPercent);
+        }
+        renderer.render(scene, camera);
+    }
+
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 150;
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+            }
+        }
+    }
+
+    function toggleFaq(button) {
+        const item = button.parentElement;
+        item.classList.toggle('active');
+    }
+
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    window.addEventListener("scroll", reveal);
+
+    window.onload = () => {
+        init3D();
+        animate();
+        reveal();
+    };
+</script>
+</body>
+</html>
